@@ -1,0 +1,35 @@
+﻿<Window x:Class="lab1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab1" xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1911">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="333*"/>
+            <ColumnDefinition Width="67*"/>
+        </Grid.ColumnDefinitions>
+        <lvc:CartesianChart x:Name="cart" Series="{Binding SeriesCollection}" LegendLocation="Left" Margin="10,14,722,105" DataTooltip="{x:Null}" DisableAnimations="True" Hoverable="False">
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Salesman" Labels="{Binding Labels}"></lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Sold Apps" LabelFormatter="{Binding Formatter}" MinRange="0"></lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
+        <lvc:CartesianChart x:Name="cart2" Series="{Binding SeriesCollection2}" LegendLocation="Left" Margin="898,14,160,105" DataTooltip="{x:Null}" DisableAnimations="True" Hoverable="False" Grid.ColumnSpan="2">
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Salesman"></lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Sold Apps" MinRange="0"></lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
+        <Button x:Name="btnAf" Grid.Column="1" Content="Discrete" HorizontalAlignment="Left" Margin="188,52,0,0" VerticalAlignment="Top" Width="77" Click="btnAf_Click"/>
+        <Button x:Name="btnAfi" Grid.Column="1" Content="Polyharmonic" HorizontalAlignment="Left" Margin="188,90,0,0" VerticalAlignment="Top" Width="77" Click="btnAfi_Click"/>
+        <Button x:Name="btnFif" Grid.Column="1" Content="Filter" HorizontalAlignment="Left" Margin="188,135,0,0" VerticalAlignment="Top" Width="77" Click="btnFif_Click"/>
+        <Button x:Name="btnPoly" Grid.Column="1" Content="Fast Fourier" HorizontalAlignment="Left" Margin="188,200,0,0" VerticalAlignment="Top" Width="77" Click="btnPoly_Click"/>
+    </Grid>
+</Window>
